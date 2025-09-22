@@ -3,23 +3,20 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title> Task Tracker JS</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <main>
-            <div id="title">
-                <h1>Task Tracker</h1>
-            </div>
-            <div id="container">
-                <form action="">
-                    <input type="text" id="task-inputbox" required>
-                    <button type="submit" id="submit-task">submit</button>           
-                </form>
-            </div>
-            <div id="task-display">
-                <h3>Here are your current tasks: </h3>
-                <ol id="taskList">
-                    <li></li>
-                </ol>
+            <div class="container">
+                <div class="task-tracker">
+                    <h2>Task Tracker</h2>
+                    <div class="row">
+                        <input type="text" id="task-inputbox" placeholder="add a task" required>
+                        <button type="button" onclick="addTask()">submit</button>
+                    </div>
+                    <ul id="task-list">
+                    </ul>
+                </div>
             </div>
             <script src="script.js"></script>
         </main>
