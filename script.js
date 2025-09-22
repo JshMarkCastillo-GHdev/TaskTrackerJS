@@ -8,9 +8,12 @@ function addTask() {
         let li = document.createElement("li");
         li.innerHTML = inputBox.value;
         listContainer.appendChild(li);
+        // Remove task
         let span = document.createElement("span");
+        span.dataset.action = 'remove';
         span.innerHTML = "\u00d7";
         li.appendChild(span);
+
     }
     inputBox.value = "";
 }
@@ -34,4 +37,5 @@ function saveData() {
 function showTask() {
     listContainer.innerHTML = localStorage.getItem("data");
 }
+//localStorage.clear();
 showTask();
