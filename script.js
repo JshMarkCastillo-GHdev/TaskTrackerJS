@@ -1,4 +1,37 @@
-let task = [];
+const inputBox = document.getElementById("task-inputbox");
+const listContainer = document.getElementById("task-list")
 
-const userInput = prompt("Name:");
-console.log(userInput);
+function addTask() {
+    if(inputBox.value === '') {
+        alert("You need to add a task.");
+    } else {
+        let li = document.createElement("li");
+        li.innerHTML = inputBox.value;
+        listContainer.appendChild(li);
+        let span = document.createElement("span");
+        span.innerHTML = "\u00d7";
+        li.appendChild(span);
+    }
+    inputBox.value = "";
+}
+
+listContainer.addEventListener("click", function(e) {
+    if(e.target.tagName === "LI") {
+        e.target.classList.toggle("checked");
+        saveData();
+    } else if (e.target.tagName === "SPAN") {
+        e.target.parentElement.remove();
+        saveData();
+    }
+
+    // Add an edit button for the created task
+    // Add a pen icon to incorporate with the edit task
+}, false)
+
+function saveData() {
+    localStorage.setItem("data", listContainer.innerHTML);
+}
+function showTask() {
+    listContainer.innerHTML = localStorage.getItem("data");
+}
+showTask();
